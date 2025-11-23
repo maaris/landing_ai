@@ -70,6 +70,54 @@ client.call(
 )
 ```
 
+### ADE Extract
+
+Extract structured data from Markdown using a JSON schema.
+
+#### Extract from URL
+
+```ruby
+client = LandingAI::AdeExtract.new
+schema = {
+  type: "object",
+  properties: {
+    name: { type: "string" },
+    age: { type: "integer" }
+  }
+}
+
+result = client.call(
+  markdown_url: "https://example.com/document.md",
+  schema: schema
+)
+
+puts result["extraction"]
+```
+
+#### Extract from Local File
+
+```ruby
+client = LandingAI::AdeExtract.new
+result = client.call(
+  markdown: "/path/to/document.md",
+  schema: schema
+)
+
+puts result["extraction"]
+```
+
+#### Extract from Content
+
+```ruby
+client = LandingAI::AdeExtract.new
+result = client.call(
+  markdown: "# My Name is John",
+  schema: schema
+)
+
+puts result["extraction"]
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
