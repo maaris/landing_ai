@@ -4,7 +4,7 @@ require "faraday/multipart"
 
 module LandingAI
   class Client
-    BASE_URL = "https://api.va.landing.ai/v1"
+    BASE_URL = "https://api.va.eu-west-1.landing.ai/v1"
 
     def initialize(api_key: nil)
       @api_key = api_key || LandingAI.api_key
